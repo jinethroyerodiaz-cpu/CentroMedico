@@ -42,10 +42,9 @@ class Medicamento
     {   
         $this->Conexion = Conectarse();
         $sql = "UPDATE Medicamento 
-                SET nombreMedicamento='$this->nombres',
+                SET nombreMedicamento='$this->nombreMedicamento',
                     dosis='$this->dosis',
-                    uso='$this->uso',
-                    
+                    uso='$this->uso'
                 WHERE idMedicamento='$this->idMedicamento'";
         $resultado = $this->Conexion->query($sql);
         $this->Conexion->close();
@@ -55,7 +54,7 @@ class Medicamento
     public function listarMedicamento()
     {
         $this->Conexion = Conectarse();
-        $sql = "SELECT * FROM Medicamentos";
+        $sql = "SELECT * FROM Medicamento";
         $resultado = $this->Conexion->query($sql);
         $this->Conexion->close();
         return $resultado;   
